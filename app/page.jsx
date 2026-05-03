@@ -74,7 +74,7 @@ export default function Home() {
                     <div className="text-sm text-gray-600">{testimonials.role}</div>
                   </div>
                 </div>
-                <p className="text-gray-600 ">"{testimonials.quote}"</p>
+                <p className="text-gray-600 ">{testimonials.quote}</p>
                 </CardContent>
               </Card>
             ))}

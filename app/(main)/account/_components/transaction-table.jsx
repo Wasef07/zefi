@@ -130,11 +130,11 @@ const TransactionTable = ({ transactions = [] }) => {
     filterandSortedTransactions.length / itemsPerPage,
   );
   const paginatedTransactions = useMemo(() => {
-  return filterandSortedTransactions.slice(
-    (page - 1) * itemsPerPage,
-    page * itemsPerPage,
-  );
-}, [filterandSortedTransactions, page]);
+    return filterandSortedTransactions.slice(
+      (page - 1) * itemsPerPage,
+      page * itemsPerPage,
+    );
+  }, [filterandSortedTransactions, page]);
 
   const handleSort = (field) => {
     setSortConfig((current) => ({
@@ -175,10 +175,12 @@ const TransactionTable = ({ transactions = [] }) => {
   useEffect(() => {
     if (deleted?.success && !deleteLoading) {
       toast.success("Transactions deleted successfully");
-      setSelectedIds([]);
-      router.refresh();
+      setTimeout(() => {
+        setSelectedIds([]);
+        router.refresh();
+      }, 0);
     }
-  }, [deleted, deleteLoading]);
+  }, [deleted, deleteLoading, router]);
 
   const handleClearFilters = () => {
     setSearchTerm("");

@@ -40,7 +40,7 @@ const BudgetProgress = ({ initialBudget, currentExpense }) => {
   useEffect(() => {
     if (updatedBudget?.success) {
       toast.success("Budget updated successfully.");
-      setIsEditing(false);
+      setTimeout(() => setIsEditing(false), 0);
     }
   }, [updatedBudget]);
 
@@ -115,13 +115,14 @@ const BudgetProgress = ({ initialBudget, currentExpense }) => {
       <CardContent>
         {initialBudget && (
           <div>
-            <Progress value={percentage} 
+            <Progress
+              value={percentage}
               extraStyles={`${
-                percentage >=90
-                ? "bg-red-500"
-                : percentage >= 75
-                ? "bg-yellow-500"
-                : "bg-green-500"
+                percentage >= 90
+                  ? "bg-red-500"
+                  : percentage >= 75
+                    ? "bg-yellow-500"
+                    : "bg-green-500"
               }`}
             />
             <p className="text-sm text-muted-foreground text-right">
