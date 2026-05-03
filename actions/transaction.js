@@ -19,24 +19,26 @@ export async function createTransaction(data) {
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
 
-    const req = await request();
-    const decision = await aj.protect(req, {
-      userId,
-      requested: 1,
-    });
-    if (decision.isDenied()) {
-      if (decision.reason.isRateLimit()) {
-        const { remaining, reset } = decision.reason;
-        console.error({
-          code: "RATE_LIMIT_EXCEEDED",
-          details: {
-            remaining,
-            resetInSeconds: reset,
-          },
-        });
-        throw new Error("Too many request. Please try again later.");
+    try {
+      const req = await request();
+      const decision = await aj.protect(req, {
+        userId,
+        requested: 1,
+      });
+      if (decision.isDenied()) {
+        if (decision.reason.isRateLimit()) {
+          throw new Error("Too many requests. Please try again later.");
+        }
+        throw new Error("Request Blocked");
       }
-      throw new Error("Request Blocked");
+    } catch (ajError) {
+      if (
+        ajError.message === "Too many requests. Please try again later." ||
+        ajError.message === "Request Blocked"
+      ) {
+        throw ajError;
+      }
+      console.error("Arcjet error:", ajError.message);
     }
     const user = await db.user.findUnique({ where: { clerkUserId: userId } });
     if (!user) {
