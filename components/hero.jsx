@@ -48,7 +48,7 @@ const HeroSection = () => {
             </Button>
           </Link>
         </div>
-        <div className="hero-image-wrapper">
+        {/* <div className="hero-image-wrapper">
           <div ref={imgRef} className="hero-image">
             <Image
               src="/Landing_Page.jpg"
@@ -59,7 +59,7 @@ const HeroSection = () => {
               className="rounded-lg shadow-2xl border mx-auto"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
