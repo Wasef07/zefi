@@ -3,7 +3,7 @@
 Zefi is a full-stack personal finance management application that helps you track transactions, manage budgets, and gain AI-powered insights into your spending habits.
 
 ## 🚀 Live Demo
-[zefi.vercel.app](https://zefi.vercel.app)
+[zefi.vercel.app](https://usezefi.vercel.app/)
 
 ## ✨ Features
 
@@ -36,6 +36,7 @@ Zefi is a full-stack personal finance management application that helps you trac
 
 ## 📁 Project Structure
 
+```
 zefi/
 ├── app/
 │   ├── (auth)/          # Sign in / Sign up pages
@@ -49,8 +50,8 @@ zefi/
 │   ├── inngest/         # Inngest client and functions
 │   └── prisma.js        # Prisma client
 └── prisma/
-└── schema.prisma    # Database schema
-
+    └── schema.prisma    # Database schema
+```
 
 ## ⚙️ Getting Started
 
@@ -122,5 +123,3 @@ npx inngest-cli@latest dev
 | `INNGEST_SIGNING_KEY` | Inngest signing key (production) |
 | `INNGEST_EVENT_KEY` | Inngest event key (production) |
 
-## 📄 License
-MIT
