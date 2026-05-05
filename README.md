@@ -3,7 +3,7 @@
 Zefi is a full-stack personal finance management application that helps you track transactions, manage budgets, and gain AI-powered insights into your spending habits.
 
 ## 🚀 Live Demo
-[zefi.vercel.app](https://usezefi.vercel.app/)
+[usezefi.vercel.app](https://usezefi.vercel.app/)
 
 ## ✨ Features
 
