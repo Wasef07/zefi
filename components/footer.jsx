@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <Link href="/">
               <Image
-                src="/Logo.png"
+                src="/logo.png"
                 alt="Zefi Logo"
                 width={100}
                 height={60}
